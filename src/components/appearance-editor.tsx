@@ -56,7 +56,7 @@ export function AppearanceEditor() {
         <Tabs.Content value="appearance" className="grid gap-3 sm:grid-cols-2">
           <div className="sm:col-span-2">
             <p className="mb-2 text-sm">Choose character image style</p>
-            <div className="grid grid-cols-3 gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {[
                 { key: "classic-cream", src: "/characters/mochi-classic.svg", label: "Classic" },
                 { key: "minty-pop", src: "/characters/mochi-minty.svg", label: "Minty" },

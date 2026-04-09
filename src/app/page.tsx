@@ -31,11 +31,11 @@ export default function Home() {
 
   return (
     <div className="space-y-10">
-      <section className="card-surface relative overflow-hidden p-8 sm:p-12">
+      <section className="card-surface relative overflow-hidden p-5 sm:p-8 lg:p-12">
         <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-[color:var(--color-accent)]/20 blur-3xl" />
         <p className="mb-3 text-sm font-medium text-[color:var(--color-muted)]">LumiPocket</p>
         <motion.h1
-          className="gradient-title max-w-4xl text-4xl font-bold tracking-tight sm:text-6xl"
+          className="gradient-title max-w-4xl text-3xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
         >
@@ -74,8 +74,8 @@ export default function Home() {
       </section>
 
       <section className="card-surface p-6">
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Founder-style testimonials</h2>
+        <div className="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-lg font-semibold sm:text-xl">Founder-style testimonials</h2>
           <div className="flex gap-2">
             <button
               className="glass rounded-xl p-2"

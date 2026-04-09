@@ -19,7 +19,7 @@ export default function AboutPage() {
             ["System", "Tokenized theme architecture and shared state continuity."],
             ["Craft", "Framer Motion polish and component-rich interaction patterns."],
           ].map(([title, desc]) => (
-            <div key={title} className="grid grid-cols-[90px_1fr] gap-4">
+            <div key={title} className="grid gap-1 sm:grid-cols-[90px_1fr] sm:gap-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-[color:var(--color-muted)]">{title}</p>
               <p className="text-sm">{desc}</p>
             </div>

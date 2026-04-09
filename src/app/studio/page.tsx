@@ -22,13 +22,13 @@ export default function StudioPage() {
           Shape your mascot personality, style, and idle behavior.
         </p>
       </header>
-      <Tabs.Root defaultValue="customize" className="card-surface p-6">
-        <Tabs.List className="relative mb-4 flex gap-2 border-b pb-2">
+      <Tabs.Root defaultValue="customize" className="card-surface p-4 sm:p-6">
+        <Tabs.List className="relative mb-4 flex gap-2 overflow-x-auto border-b pb-2 [scrollbar-width:none]">
           {["customize", "preview", "motion"].map((item) => (
             <Tabs.Trigger
               key={item}
               value={item}
-              className="rounded-xl px-3 py-1.5 text-sm capitalize data-[state=active]:bg-[color:var(--color-primary)] data-[state=active]:text-white"
+              className="shrink-0 rounded-xl px-3 py-1.5 text-sm capitalize data-[state=active]:bg-[color:var(--color-primary)] data-[state=active]:text-white"
             >
               {item}
             </Tabs.Trigger>
@@ -53,7 +53,7 @@ export default function StudioPage() {
               </p>
             </motion.div>
             <div className="glass rounded-2xl p-4">
-              <div className="mb-3 flex items-center justify-between">
+              <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <h3 className="font-semibold">Before / After</h3>
                 <button
                   className="rounded-lg border px-3 py-1.5 text-xs"

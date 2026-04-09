@@ -27,8 +27,8 @@ export default function ThemesPage() {
       </div>
       <ThemeEditor />
       <section className="card-surface p-5">
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Contrast checker badges</h2>
+        <div className="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-base font-semibold sm:text-lg">Contrast checker badges</h2>
           <button className="premium-btn px-4 py-2 text-xs font-semibold" onClick={exportTheme}>
             Export theme JSON
           </button>

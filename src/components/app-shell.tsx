@@ -43,18 +43,50 @@ export function AppShell({ children }: { children: ReactNode }) {
             "color-mix(in oklab, var(--color-surface) 86%, var(--color-background))",
         }}
       >
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-          <Link
-            href="/"
-            className="font-semibold tracking-tight"
-            data-help-title="LumiPocket logo"
-            data-help-description="Brand home anchor and playful easter egg trigger."
-            data-help-usage="Click to return home and wave at your companion."
-          >
-            LumiPocket
-          </Link>
+        <div className="mx-auto w-full max-w-6xl px-4 py-3 sm:px-6">
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <Link
+              href="/"
+              className="shrink-0 text-sm font-semibold tracking-tight sm:text-base"
+              data-help-title="LumiPocket logo"
+              data-help-description="Brand home anchor and playful easter egg trigger."
+              data-help-usage="Click to return home and wave at your companion."
+            >
+              LumiPocket
+            </Link>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => {
+                  const nextTheme =
+                    themeName === "Midnight Glow" ? "Cotton Candy" : "Midnight Glow";
+                  const target = themePresets.find((item) => item.name === nextTheme);
+                  if (target) setTheme(target.name, target.tokens);
+                }}
+                className="rounded-xl px-2.5 py-1.5 text-[11px] sm:px-3 sm:text-xs"
+                style={{
+                  border: "1px solid color-mix(in oklab, var(--color-muted) 34%, transparent)",
+                  background:
+                    "color-mix(in oklab, var(--color-surface) 76%, var(--color-background))",
+                  color: "var(--color-text)",
+                }}
+              >
+                {themeName === "Midnight Glow" ? "Light" : "Dark"}
+              </button>
+              <button
+                className="rounded-xl border px-2.5 py-1.5 text-[11px] sm:px-3 sm:text-xs"
+                onClick={() =>
+                  window.dispatchEvent(
+                    new KeyboardEvent("keydown", { key: "k", ctrlKey: true }),
+                  )
+                }
+              >
+                <span className="hidden sm:inline">Cmd/Ctrl + K</span>
+                <span className="sm:hidden">Cmd K</span>
+              </button>
+            </div>
+          </div>
           <nav
-            className="flex gap-1 rounded-2xl p-1"
+            className="flex gap-1 overflow-x-auto rounded-2xl p-1 [scrollbar-width:none]"
             style={{
               border: "1px solid color-mix(in oklab, var(--color-muted) 34%, transparent)",
               background:
@@ -67,7 +99,7 @@ export function AppShell({ children }: { children: ReactNode }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative rounded-xl px-3 py-1.5 text-xs sm:text-sm ${
+                  className={`relative shrink-0 rounded-xl px-3 py-1.5 text-xs sm:text-sm ${
                     active ? "text-white" : "text-[color:var(--color-muted)]"
                   }`}
                 >
@@ -82,31 +114,6 @@ export function AppShell({ children }: { children: ReactNode }) {
               );
             })}
           </nav>
-          <button
-            onClick={() => {
-              const nextTheme = themeName === "Midnight Glow" ? "Cotton Candy" : "Midnight Glow";
-              const target = themePresets.find((item) => item.name === nextTheme);
-              if (target) setTheme(target.name, target.tokens);
-            }}
-            className="ml-2 rounded-xl px-3 py-1.5 text-xs"
-            style={{
-              border: "1px solid color-mix(in oklab, var(--color-muted) 34%, transparent)",
-              background:
-                "color-mix(in oklab, var(--color-surface) 76%, var(--color-background))",
-              color: "var(--color-text)",
-            }}
-            data-help-title="Dark and light switch"
-            data-help-description="Toggles between a bright and dark base palette."
-            data-help-usage="Use this for quick contrast checks before fine-tuning individual tokens."
-          >
-            {themeName === "Midnight Glow" ? "Light mode" : "Dark mode"}
-          </button>
-          <button
-            className="ml-2 rounded-xl border px-3 py-1.5 text-xs"
-            onClick={() => window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", ctrlKey: true }))}
-          >
-            Cmd/Ctrl + K
-          </button>
         </div>
       </header>
       <AnimatePresence mode="wait">

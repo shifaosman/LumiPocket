@@ -30,7 +30,7 @@ export default function ComponentsPage() {
           Inputs, overlays, feedback, and data display with animated polish.
         </p>
       </header>
-      <section className="grid gap-4 lg:grid-cols-3">
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <article className="card-surface space-y-3 p-5">
           <h2 className="font-semibold">Inputs</h2>
           <button className="premium-btn px-4 py-2">
@@ -79,7 +79,7 @@ export default function ComponentsPage() {
         <article className="card-surface space-y-3 p-5">
           <h2 className="font-semibold">Tooltip variants</h2>
           <Tooltip.Provider>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {["Info", "Success", "Warning"].map((item) => (
                 <Tooltip.Root key={item}>
                   <Tooltip.Trigger className="rounded-lg border px-3 py-2 text-xs">
@@ -116,7 +116,7 @@ export default function ComponentsPage() {
       </section>
       <section className="card-surface p-5">
         <h2 className="font-semibold">Multi-step form wizard</h2>
-        <div className="mt-3 flex gap-2">
+        <div className="mt-3 flex flex-wrap gap-2">
           {[0, 1, 2].map((i) => (
             <div
               key={i}
