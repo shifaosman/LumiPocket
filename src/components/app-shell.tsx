@@ -24,6 +24,9 @@ export function AppShell({ children }: { children: ReactNode }) {
   const tokens = useLumiStore((state) => state.tokens);
   const themeName = useLumiStore((state) => state.themeName);
   const setTheme = useLumiStore((state) => state.setTheme);
+  const professionalMode = useLumiStore((state) => state.professionalMode);
+  const setProfessionalMode = useLumiStore((state) => state.setProfessionalMode);
+  const routeLabel = routes.find((item) => item.href === pathname)?.label ?? "Workspace";
 
   useEffect(() => {
     const root = document.documentElement;
@@ -33,8 +36,8 @@ export function AppShell({ children }: { children: ReactNode }) {
   }, [tokens]);
 
   return (
-    <div className="grain relative min-h-screen pb-32">
-      <FloatingOrbs />
+    <div className={`grain relative min-h-screen pb-32 ${professionalMode ? "professional-mode" : ""}`}>
+      {!professionalMode && <FloatingOrbs />}
       <header
         className="sticky top-0 z-20 backdrop-blur"
         style={{
@@ -55,6 +58,12 @@ export function AppShell({ children }: { children: ReactNode }) {
               LumiPocket
             </Link>
             <div className="flex items-center gap-2">
+              <button
+                onClick={() => setProfessionalMode(!professionalMode)}
+                className="rounded-xl border px-2.5 py-1.5 text-[11px] sm:px-3 sm:text-xs"
+              >
+                {professionalMode ? "Delight mode" : "Professional mode"}
+              </button>
               <button
                 onClick={() => {
                   const nextTheme =
@@ -125,6 +134,9 @@ export function AppShell({ children }: { children: ReactNode }) {
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.35, ease: "easeOut" }}
         >
+          <div className="mb-4 text-xs text-[color:var(--color-muted)]">
+            Workflow context: <span className="font-semibold">{routeLabel}</span>
+          </div>
           {children}
         </motion.main>
       </AnimatePresence>

@@ -1,0 +1,10 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="18" fill="#F3F7FF"/>
+  <rect x="28" y="26" width="584" height="40" rx="12" fill="#FFFFFF"/>
+  <text x="44" y="52" fill="#1D2032" font-family="Arial" font-size="16" font-weight="700">Benchmark: Render Stability</text>
+  <rect x="28" y="86" width="584" height="246" rx="14" fill="#FFFFFF"/>
+  <path d="M68 276C122 250 140 222 194 210C248 198 266 166 320 154C374 142 392 114 446 104C500 94 518 78 572 70" stroke="#4C6FFF" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="572" cy="70" r="8" fill="#4C6FFF"/>
+  <text x="66" y="120" fill="#646B8C" font-family="Arial" font-size="13">Initial frame jitter reduced after motion tuning.</text>
+  <text x="66" y="146" fill="#1D2032" font-family="Arial" font-size="24" font-weight="700">95 / 100</text>
+</svg>

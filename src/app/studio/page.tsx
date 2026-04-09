@@ -9,6 +9,11 @@ import { useLumiStore } from "@/store/use-lumi-store";
 
 export default function StudioPage() {
   const [compare, setCompare] = useState(false);
+  const [reducedMotion] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+  );
   const speed = useLumiStore((state) => state.animationSpeed);
   const intensity = useLumiStore((state) => state.animationIntensity);
   const setAnimationSpeed = useLumiStore((state) => state.setAnimationSpeed);
@@ -106,6 +111,25 @@ export default function StudioPage() {
                   </Slider.Track>
                   <Slider.Thumb className="block h-4 w-4 rounded-full bg-white" />
                 </Slider.Root>
+              </div>
+            </div>
+          </div>
+          <div className="glass rounded-2xl p-4">
+            <p className="text-sm font-semibold">Performance instrumentation</p>
+            <div className="mt-3 grid gap-2 sm:grid-cols-3">
+              <div className="rounded-xl border p-3">
+                <p className="text-xs text-[color:var(--color-muted)]">Animation load</p>
+                <p className="mt-1 text-sm font-semibold">
+                  {speed > 85 || intensity > 85 ? "High" : speed > 65 || intensity > 65 ? "Medium" : "Low"}
+                </p>
+              </div>
+              <div className="rounded-xl border p-3">
+                <p className="text-xs text-[color:var(--color-muted)]">Reduced motion</p>
+                <p className="mt-1 text-sm font-semibold">{reducedMotion ? "Enabled" : "Disabled"}</p>
+              </div>
+              <div className="rounded-xl border p-3">
+                <p className="text-xs text-[color:var(--color-muted)]">Suggested FPS budget</p>
+                <p className="mt-1 text-sm font-semibold">60fps target</p>
               </div>
             </div>
           </div>

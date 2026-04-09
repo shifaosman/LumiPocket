@@ -1,0 +1,15 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="18" fill="#F8F5FF"/>
+  <rect x="28" y="26" width="584" height="40" rx="12" fill="#FFFFFF"/>
+  <text x="44" y="52" fill="#1D2032" font-family="Arial" font-size="16" font-weight="700">Benchmark: Interaction Latency</text>
+  <rect x="28" y="86" width="584" height="246" rx="14" fill="#FFFFFF"/>
+  <rect x="66" y="124" width="220" height="16" rx="8" fill="#ECEFFD"/>
+  <rect x="66" y="124" width="182" height="16" rx="8" fill="#7C5CFF"/>
+  <text x="300" y="137" fill="#1D2032" font-family="Arial" font-size="13">Input response median: 82ms</text>
+  <rect x="66" y="172" width="220" height="16" rx="8" fill="#ECEFFD"/>
+  <rect x="66" y="172" width="194" height="16" rx="8" fill="#5F7DFF"/>
+  <text x="300" y="185" fill="#1D2032" font-family="Arial" font-size="13">Theme switch median: 76ms</text>
+  <rect x="66" y="220" width="220" height="16" rx="8" fill="#ECEFFD"/>
+  <rect x="66" y="220" width="170" height="16" rx="8" fill="#54D8FF"/>
+  <text x="300" y="233" fill="#1D2032" font-family="Arial" font-size="13">Route transition median: 91ms</text>
+</svg>

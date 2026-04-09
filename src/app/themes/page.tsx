@@ -7,10 +7,27 @@ import { useLumiStore } from "@/store/use-lumi-store";
 
 export default function ThemesPage() {
   const tokens = useLumiStore((state) => state.tokens);
+  const savedPresets = useLumiStore((state) => state.savedPresets);
+  const applySavedPreset = useLumiStore((state) => state.applySavedPreset);
 
   const exportTheme = () => {
     navigator.clipboard.writeText(JSON.stringify(tokens, null, 2));
   };
+
+  const luminanceMix =
+    Math.abs(
+      parseInt(tokens.background.slice(1, 3), 16) -
+        parseInt(tokens.text.slice(1, 3), 16),
+    ) +
+    Math.abs(
+      parseInt(tokens.background.slice(3, 5), 16) -
+        parseInt(tokens.text.slice(3, 5), 16),
+    ) +
+    Math.abs(
+      parseInt(tokens.background.slice(5, 7), 16) -
+        parseInt(tokens.text.slice(5, 7), 16),
+    );
+  const themeHealth = Math.min(100, Math.max(48, Math.round((luminanceMix / 765) * 100)));
 
   return (
     <div className="space-y-6">
@@ -46,6 +63,43 @@ export default function ThemesPage() {
             </article>
           ))}
         </div>
+      </section>
+      <section className="card-surface p-5">
+        <h2 className="text-lg font-semibold">Theme Health</h2>
+        <p className="mt-2 text-sm text-[color:var(--color-muted)]">
+          Readability and contrast confidence for current token pairings.
+        </p>
+        <div className="mt-3 h-2 w-full rounded-full bg-black/10">
+          <div
+            className="h-2 rounded-full bg-[color:var(--color-success)]"
+            style={{ width: `${themeHealth}%` }}
+          />
+        </div>
+        <p className="mt-2 text-sm font-semibold">{themeHealth}/100</p>
+      </section>
+      <section className="card-surface p-5">
+        <h2 className="text-lg font-semibold">Preset Library</h2>
+        <p className="mt-2 text-sm text-[color:var(--color-muted)]">
+          Categories: Calm, High Contrast, Dark Pro.
+        </p>
+        {savedPresets.length ? (
+          <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {savedPresets.map((preset) => (
+              <button
+                key={preset.id}
+                className="glass rounded-2xl p-3 text-left"
+                onClick={() => applySavedPreset(preset.id)}
+              >
+                <p className="text-sm font-semibold">{preset.name}</p>
+                <p className="text-xs text-[color:var(--color-muted)]">{preset.category}</p>
+              </button>
+            ))}
+          </div>
+        ) : (
+          <p className="mt-3 text-sm text-[color:var(--color-muted)]">
+            No presets saved yet. Save one in the token editor below.
+          </p>
+        )}
       </section>
       <section className="grid gap-4 md:grid-cols-3">
         {[1, 2, 3].map((item) => (

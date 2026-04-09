@@ -14,6 +14,9 @@ export default function ComponentsPage() {
   const [items, setItems] = useState(["Hero card", "Stats card", "CTA card"]);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [emptyActive, setEmptyActive] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<
+    "Inputs" | "Navigation" | "Feedback" | "Overlays" | "Data display"
+  >("Inputs");
 
   const move = (from: number, to: number) => {
     const clone = [...items];
@@ -30,6 +33,36 @@ export default function ComponentsPage() {
           Inputs, overlays, feedback, and data display with animated polish.
         </p>
       </header>
+      <section className="card-surface p-4">
+        <div className="flex flex-wrap gap-2">
+          {(["Inputs", "Navigation", "Feedback", "Overlays", "Data display"] as const).map(
+            (item) => (
+              <button
+                key={item}
+                onClick={() => setActiveCategory(item)}
+                className={`rounded-full px-3 py-1.5 text-xs ${
+                  activeCategory === item ? "bg-[color:var(--color-primary)] text-white" : "border"
+                }`}
+              >
+                {item}
+              </button>
+            ),
+          )}
+        </div>
+        <p className="mt-3 text-sm text-[color:var(--color-muted)]">
+          Usage tip for <strong>{activeCategory}</strong>:{" "}
+          {activeCategory === "Inputs" &&
+            "Prefer explicit labels, helper text, and meaningful focus states."}
+          {activeCategory === "Navigation" &&
+            "Keep active state obvious and support keyboard movement between items."}
+          {activeCategory === "Feedback" &&
+            "Show timely response messages and make recovery actions visible."}
+          {activeCategory === "Overlays" &&
+            "Use modal/popover only when context demands focused attention."}
+          {activeCategory === "Data display" &&
+            "Use contrast and spacing to separate primary and secondary values."}
+        </p>
+      </section>
       <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <article className="card-surface space-y-3 p-5">
           <h2 className="font-semibold">Inputs</h2>

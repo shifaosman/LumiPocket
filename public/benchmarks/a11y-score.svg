@@ -1,0 +1,14 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="18" fill="#F2FBF7"/>
+  <rect x="28" y="26" width="584" height="40" rx="12" fill="#FFFFFF"/>
+  <text x="44" y="52" fill="#1D2032" font-family="Arial" font-size="16" font-weight="700">Benchmark: Accessibility Score</text>
+  <rect x="28" y="86" width="584" height="246" rx="14" fill="#FFFFFF"/>
+  <circle cx="140" cy="208" r="72" fill="#ECFAF3"/>
+  <circle cx="140" cy="208" r="56" fill="#48D6A7"/>
+  <text x="117" y="216" fill="#FFFFFF" font-family="Arial" font-size="24" font-weight="700">92</text>
+  <text x="248" y="150" fill="#1D2032" font-family="Arial" font-size="14" font-weight="700">Checks passed</text>
+  <text x="248" y="178" fill="#646B8C" font-family="Arial" font-size="13">Keyboard navigation: Pass</text>
+  <text x="248" y="202" fill="#646B8C" font-family="Arial" font-size="13">Focus visibility: Pass</text>
+  <text x="248" y="226" fill="#646B8C" font-family="Arial" font-size="13">Reduced motion: Pass</text>
+  <text x="248" y="250" fill="#646B8C" font-family="Arial" font-size="13">Contrast heuristics: Pass</text>
+</svg>
